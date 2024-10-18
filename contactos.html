@@ -10,21 +10,30 @@
     <nav class="volverInicio">
         <a href="index.html">Volver al inicio</a>
     </nav>
-    <form id="contacto">
-<div>
+    <form id="contacto" >
+<div class="form-contacto">
     <label for="usuario">Nombre</label>
     <input type="text" id="usuario" name="usuario" maxlength="10">
 </div>
-<div>
-    <label for="Email">Email</label>
+<div class="form-contacto">
+    <label for="email">Email</label>
     <input type="email" id="email" name="email">
     <span class="error" id="emailError"></span>
 </div>
-<div>
+<div class="form-contacto">
     <textarea name="mensaje" form="formulario" maxlength="200" rows="9" cols="50" onfocus="this.value=''" placeholder="Inserta un comentario"></textarea>
 	
 </div>
-<button type="submit">Enviar</button>
+<button type="submit" onclick="enviar()">Enviar</button>
     </form> 
+    <script>
+        function enviar(){
+        if(form.usuario.value!=""||form.email.value!=""){
+        alert("Gracias por contactarnos");
+        }else{
+        alert("revise los campos ingresados!");
+        }
+        }
+        </script>
 </body>
 </html>
