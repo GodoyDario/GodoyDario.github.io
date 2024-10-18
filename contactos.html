@@ -4,8 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contactos</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+    <nav class="volverInicio">
+        <a href="index.html">Volver al inicio</a>
+    </nav>
+    <form id="contacto">
+<div>
+    <label for="usuario">Nombre</label>
+    <input type="text" id="usuario" name="usuario" maxlength="10">
+</div>
+<div>
+    <label for="Email">Email</label>
+    <input type="email" id="email" name="email">
+    <span class="error" id="emailError"></span>
+</div>
+<div>
+    <textarea name="mensaje" form="formulario" maxlength="200" rows="9" cols="50" onfocus="this.value=''" placeholder="Inserta un comentario"></textarea>
+	
+</div>
+<button type="submit">Enviar</button>
+    </form> 
 </body>
 </html>
