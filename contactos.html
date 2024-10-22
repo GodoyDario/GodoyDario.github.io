@@ -4,19 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contactos</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(https://i.pinimg.com/564x/75/2c/2f/752c2f81872dc2d0f81407f74840ba25.jpg);
+    background-attachment: fixed;
+    background-size:cover;
+}
+.containerForm {
+    border: 5px solid rgb(180, 129, 193);
+    border-radius: 10px;
+    padding: 20px;
+    width: 450px;
+    background-color: white;}
+
+.volverInicio {
+list-style: none;
+justify-content: space-around;
+display: flex;
+text-align:center;
+background-color: #cbc0d2;
+font-family: Arial, Helvetica, sans-serif;
+margin: 0;
+padding: 0;
+}
+    </style>
 </head>
 <body>
-    <nav class="volverInicio">
+    <div class="volverInicio">
         <a href="index.html">Volver al inicio</a>
-    </nav>
+    </div>
+    <div class="containerForm">
     <form id="contacto" >
+        <h1>Déjanos tu Comentario!!</h1>
 <div class="form-contacto">
-    <label for="usuario">Nombre</label>
+    <label for="usuario">Nombre:</label>
     <input type="text" id="usuario" name="usuario" maxlength="10">
 </div>
 <div class="form-contacto">
-    <label for="email">Email</label>
+    <label for="email">Email:</label>
     <input type="email" id="email" name="email">
     <span class="error" id="emailError"></span>
 </div>
@@ -25,6 +55,8 @@
 	
 </div>
 <button type="submit" onclick="enviar()">Enviar</button>
+</div>
+
     </form> 
     <script>
         function enviar(){

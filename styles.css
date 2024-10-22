@@ -7,6 +7,7 @@ body {
     background-size:cover;
 }
 
+
 header {
     background-color: #cbc0d2;
     padding: 10px;
@@ -26,17 +27,19 @@ header {
     text-decoration: none;
     
 }
-.volverInicio {
-text-align: center;
-background-color: #cbc0d2;
-font-family: Arial, Helvetica, sans-serif;
-margin: 0;
-padding: 6px;
-}
-.remeras img {
-    height: 350px;
-    width: 400px;
-}
 
+.remeras li img {
+    height: 375px;
+    width: 420px;
+    padding: 0;
+    margin: 0;
+
+    
+}
+.remeras li {
+    text-align: center;
+    border: 2px solid aquamarine ;
+    display:block;
+}
 
 
