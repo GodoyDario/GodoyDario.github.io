@@ -1,37 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contactos</title>
     <style>
         body {
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-image: url(https://i.pinimg.com/564x/75/2c/2f/752c2f81872dc2d0f81407f74840ba25.jpg);
-    background-attachment: fixed;
-    background-size:cover;
-}
-.containerForm {
-    border: 5px solid rgb(180, 129, 193);
-    border-radius: 10px;
-    padding: 20px;
-    width: 450px;
-    background-color: white;}
-
-.volverInicio {
-list-style: none;
-justify-content: space-around;
-display: flex;
-text-align:center;
-background-color: #cbc0d2;
-font-family: Arial, Helvetica, sans-serif;
-margin: 0;
-padding: 0;
-}
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url(https://i.pinimg.com/564x/75/2c/2f/752c2f81872dc2d0f81407f74840ba25.jpg);
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        .containerForm {
+            border: 5px solid rgb(180, 129, 193);
+            border-radius: 10px;
+            padding: 20px;
+            width: 450px;
+            background-color: white;
+        }
+        .volverInicio {
+            list-style: none;
+            justify-content: space-around;
+            display: flex;
+            text-align: center;
+            background-color: #cbc0d2;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+        }
     </style>
 </head>
 <body>
@@ -39,33 +43,80 @@ padding: 0;
         <a href="index.html">Volver al inicio</a>
     </div>
     <div class="containerForm">
-    <form id="contacto" >
-        <h1>Déjanos tu Comentario!!</h1>
-<div class="form-contacto">
-    <label for="usuario">Nombre:</label>
-    <input type="text" id="usuario" name="usuario" maxlength="10">
-</div>
-<div class="form-contacto">
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email">
-    <span class="error" id="emailError"></span>
-</div>
-<div class="form-contacto">
-    <textarea name="mensaje" form="formulario" maxlength="200" rows="9" cols="50" onfocus="this.value=''" placeholder="Inserta un comentario"></textarea>
-	
-</div>
-<button type="submit" onclick="enviar()">Enviar</button>
-</div>
-
-    </form> 
+        <form id="contacto" novalidate>
+            <h1>Déjanos tu Comentario!!</h1>
+            <div>
+                <label for="usuario">Nombre:</label>
+                <input type="text" id="usuario" name="usuario" maxlength="10">
+                <span class="error" id="usuarioError"></span>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                <span class="error" id="emailError"></span>
+            </div>
+            <div>
+                <textarea id="mensaje" name="mensaje" maxlength="200" rows="9" cols="50" onfocus="this.value=''" placeholder="Inserta un comentario"></textarea>
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    <div id="Mensaje"></div> 
     <script>
-        function enviar(){
-        if(form.usuario.value!=""||form.email.value!=""){
-        alert("Gracias por contactarnos");
-        }else{
-        alert("revise los campos ingresados!");
+        const form = document.getElementById('contacto');
+        const usuario = document.getElementById('usuario');
+        const email = document.getElementById('email');
+        const mensaje = document.getElementById('mensaje');
+
+        const usuarioError = document.getElementById('usuarioError');
+        const emailError = document.getElementById('emailError');
+        const Mensaje = document.getElementById('Mensaje');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            limpiarErrores();
+            let hasError = false;
+
+            if (usuario.value.trim() === '') {
+                setError(usuario, usuarioError, 'El nombre es obligatorio');
+                hasError = true;
+            }
+
+            if (!validarEmail(email.value)) {
+                setError(email, emailError, 'El email no es válido');
+                hasError = true;
+            }
+
+            if (mensaje.value.trim() === '') {
+                Mensaje.textContent = 'El mensaje no puede estar vacío';
+                Mensaje.style.color = 'red';
+                hasError = true;
+            } else {
+                Mensaje.textContent = '';
+            }
+
+            if (!hasError) {
+                Mensaje.textContent = 'Formulario enviado correctamente';
+                Mensaje.style.color = 'green';
+            }
+        });
+
+        function setError(element, errorElement, message) {
+            errorElement.textContent = message;
+            element.style.borderColor = 'red';
         }
+
+        function limpiarErrores() {
+            usuarioError.textContent = '';
+            emailError.textContent = '';
+            usuario.style.borderColor = '';
+            email.style.borderColor = '';
         }
-        </script>
+
+        function validarEmail(email) {
+            const re = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+            return re.test(email);
+        }
+    </script>
 </body>
 </html>
