@@ -1,90 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Principal</title>
     <link rel="stylesheet" href="estilos_index.css">
 </head>
-<header>
 <body>
+    <header>
         <nav class="menu">
             <a href="index.html">Principal</a>
             <a href="articulos.html">Artículos</a>
             <a href="contactos.html">Contacto</a>
         </nav>
-    
-        <div>
-            <ul class="remeras">
-                <li>
-                    <img src="https://acdn.mitiendanube.com/stores/001/490/877/products/remera-11-cartel-tiza-atras-web-0ab303460add4d639617271935491528-1024-1024.webp" alt="Remera blanca Oversize">
-                    <br>
-                    Remera blanca Oversize
-                </li>
-                <li>
-                    <img src="https://acdn.mitiendanube.com/stores/001/490/877/products/remera-16-industries-negra-adelante-web-7bdc9baa7a1c68d93517271943402458-640-0.webp" alt="REMER INDUSTRIES - BLACK">
-                    <br>
-                    REMERA INDUSTRIES - BLACK
-                </li>
-                <li>
-                    <img src="https://acdn.mitiendanube.com/stores/001/490/877/products/remera-17-wild-west-negra-atras-web-4847572eb5b39182de17271944101420-640-0.webp" alt="Remera Wild West Negra">
-                    <br>
-                    Remera Wild West Negra
-                </li>
-                <li>
-                    <img src="https://acdn.mitiendanube.com/stores/001/490/877/products/remera-11-cartel-tiza-atras-web-0ab303460add4d639617271935491528-1024-1024.webp" alt="Remera básica">
-                    <br>
-                    Remera básica
-                </li>
-                
-            </ul>
-        </div>
-</header>
-</body>
-<footer>
-    <span id="brand"> © DG - Remeras Oversize</span>
-        <div class="full-width-border">
+    </header>
+
+    <div>
+        <div class="carousel">
+            <img id="carouselImage" src="" alt="Imagen del carrusel">
             
         </div>
+        <div class="carousel">
+            <button class="anterior" onclick="prevImage()">Anterior</button>
+            <button class="siguiente" onclick="nextImage()">Siguiente</button> </div>
+    </div>
 
-    <selection class="menu1">
-        <div class="column">
+    <footer>
+        <span id="brand">© DG - Remeras Oversize</span>
+        <div class="full-width-border"></div>
 
-            <h3>Informacion</h3>
+        <section class="menu1">
+            <div class="column">
+                <h3>Información</h3>
                 <ul>
-
-                <li><a href="#">Quienes somos</a></li>
-                <li><a href="#">Envios a todo el pais</a></li>
-                <li><a href="#">Metodos de pago</a></li>
-                <li><a href="#">Metodos de Envio</a></li>
+                    <li><a href="#">Quiénes somos</a></li>
+                    <li><a href="#">Envíos a todo el país</a></li>
+                    <li><a href="#">Métodos de pago</a></li>
+                    <li><a href="#">Métodos de envío</a></li>
                 </ul>
-        </div>
+            </div>
 
-        <div class="column">
-            <h3>Atención al cliente</h3>
+            <div class="column">
+                <h3>Atención al cliente</h3>
                 <ul>
-                <li><a href="contactos.html">Contactos</a></li>
-                <li><a href="articulos.html">Remeras</a></li>
+                    <li><a href="contactos.html">Contactos</a></li>
+                    <li><a href="articulos.html">Remeras</a></li>
                 </ul>
                 <div>
-        <img src="/GodoyDario.github.io\Imagenes\2wYpcpnuTAOhlIMxmHudsw.jpg" id="logoFooter" alt="Logo DG">
-    </div> 
-        </div>
+                    <img src="/GodoyDario.github.io/Imagenes/2wYpcpnuTAOhlIMxmHudsw.jpg" id="logoFooter" alt="Logo DG">
+                </div>
+            </div>
 
-        <div class="column">
-            <h3>Nuestra Aplicacion</h3>
+            <div class="column">
+                <h3>Nuestra Aplicación</h3>
                 <ul>
-                <li><a href="#">Consegui la app movil aca abajo</a></li>
+                    <li><a href="#">Conseguí la app móvil acá abajo</a></li>
                 </ul>
-        <div class="imagenes">
-            <img src="https://seeklogo.com/images/A/app-store-google-play-logo-4A2747BF5E-seeklogo.com.png" alt="Disponible En App Store and Google Play">
-        </div>
-    </div>
-    </selection>
+                <div class="imagenes">
+                    <img src="https://seeklogo.com/images/A/app-store-google-play-logo-4A2747BF5E-seeklogo.com.png" alt="Disponible en App Store y Google Play">
+                </div>
+            </div>
+        </section>
 
-    <div class="full-width-border">
-        
-    </div>
-    
-</footer>
+        <div class="full-width-border"></div>
+
+        <script>
+
+            const images = [
+                './Imagenes/2wYpcpnuTAOhlIMxmHudsw.jpg',
+                './Imagenes/EXsOAkmxQxWeIuzWGLCRjQ.jpg',
+                './Imagenes/fGIB4fylRDKct_JYWBMawA.jpg',
+                
+            ];
+
+            let currentIndex = 0;
+            const intervalTime = 5000; 
+
+            
+            function showImage(index) {
+                const imgElement = document.getElementById('carouselImage');
+                imgElement.src = images[index];
+            }
+
+            
+            function nextImage() {
+                currentIndex = (currentIndex + 1) % images.length;
+                showImage(currentIndex);
+            }
+
+
+            function prevImage() {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                showImage(currentIndex);
+            }
+
+
+            window.onload = function() {
+                showImage(currentIndex);
+
+
+                setInterval(nextImage, intervalTime);
+            };
+        </script>
+    </footer>
+</body>
 </html>
