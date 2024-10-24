@@ -1,21 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Articulos</title>
     <style>
-        body {
+body {
             font-family: Arial, Helvetica, sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             background-image: url(https://i.pinimg.com/564x/75/2c/2f/752c2f81872dc2d0f81407f74840ba25.jpg);
             background-attachment: fixed;
             background-size: cover;
             margin: 0;
+            padding-top: 70px
         }
         .volverInicio {
             list-style: none;
@@ -24,10 +20,11 @@
             width: 100%;
             background-color: #cbc0d2;
             padding: 10px 0;
-            margin: 0;
             position: fixed;
             top: 0;
             left: 0;
+            height: 20px; 
+            z-index: 1000;
         }
         .volverInicio a {
             text-decoration: none;
@@ -39,51 +36,142 @@
             flex-wrap: wrap;
             justify-content:center;
             gap: 20px;
-            margin-top: 60px;
+            margin-top: 40px;
         }
         .remeras li {
             list-style: none;
             text-align: center;
             max-width: 200px;
+            border: 2px solid #ee8989;
+            border-radius: 5px;
         }
         .remeras img {
             width: 100%;
             height: auto;
             border-radius: 5px;
-            
+        }
+        button {
+            margin-top: 10px;
+            padding: 5px;
         }
     </style>
 </head>
 <body>
+    <header>
     <div class="volverInicio">
         <a href="index.html">Volver al inicio</a>
     </div>
-
+</header>
     <div>
+        <h2>Remeras Oversize</h2>
         <ul class="remeras">
             <li>
+                
                 <img src="https://acdn.mitiendanube.com/stores/001/490/877/products/remera-11-cartel-tiza-atras-web-0ab303460add4d639617271935491528-1024-1024.webp" alt="Remera blanca Oversize">
                 <br>
-                Remera blanca Oversize
+                Remera Basica - White 
+                <button>Añadir al Carrito</button>
             </li>
             <li>
                 <img src="https://acdn.mitiendanube.com/stores/001/490/877/products/remera-16-industries-negra-adelante-web-7bdc9baa7a1c68d93517271943402458-640-0.webp" alt="REMER INDUSTRIES - BLACK">
                 <br>
-                REMERA INDUSTRIES - BLACK
+                Remera Industriales - Black
+                <button>Añadir al Carrito</button>
             </li>
             <li>
                 <img src="https://acdn.mitiendanube.com/stores/001/490/877/products/remera-17-wild-west-negra-atras-web-4847572eb5b39182de17271944101420-640-0.webp" alt="Remera Wild West Negra">
                 <br>
                 Remera Wild West Negra
+                
+                <button>Añadir al Carrito</button>
             </li>
             <li>
-                <img src="https://acdn.mitiendanube.com/stores/001/490/877/products/remera-11-cartel-tiza-atras-web-0ab303460add4d639617271935491528-1024-1024.webp" alt="Remera básica">
+                <img src="https://acdn.mitiendanube.com/stores/001/490/877/products/remera-8-fnb-tiza-atras-web-162b1051b07119adcf17271934094149-640-0.webp">
                 <br>
-                Remera básica
+                Remera FNB - White
+                <button>Añadir al Carrito</button>
             </li>
-            
+            <li>
+                <img src="https://acdn.mitiendanube.com/stores/001/490/877/products/remera-7-90s-tiza-atras-web-80b51f322efa1aa1f417271933543245-640-0.webp">
+                <br>
+                Remera 90S - White
+                <button>Añadir al Carrito</button>
+            </li>
         </ul>
     </div>
-    
+    <div>
+        <h2>Remeras Oversize</h2>
+        <ul class="remeras">
+            <li>
+                
+                <img src="https://acdn.mitiendanube.com/stores/001/490/877/products/remera-11-cartel-tiza-atras-web-0ab303460add4d639617271935491528-1024-1024.webp" alt="Remera blanca Oversize">
+                <br>
+                Remera Basica - White 
+                <button>Añadir al Carrito</button>
+            </li>
+            <li>
+                <img src="https://acdn.mitiendanube.com/stores/001/490/877/products/remera-16-industries-negra-adelante-web-7bdc9baa7a1c68d93517271943402458-640-0.webp" alt="REMER INDUSTRIES - BLACK">
+                <br>
+                Remera Industriales - Black
+                <button>Añadir al Carrito</button>
+            </li>
+            <li>
+                <img src="https://acdn.mitiendanube.com/stores/001/490/877/products/remera-17-wild-west-negra-atras-web-4847572eb5b39182de17271944101420-640-0.webp" alt="Remera Wild West Negra">
+                <br>
+                Remera Wild West Negra
+                
+                <button>Añadir al Carrito</button>
+            </li>
+            <li>
+                <img src="https://acdn.mitiendanube.com/stores/001/490/877/products/remera-8-fnb-tiza-atras-web-162b1051b07119adcf17271934094149-640-0.webp">
+                <br>
+                Remera FNB - White
+                <button>Añadir al Carrito</button>
+            </li>
+            <li>
+                <img src="https://acdn.mitiendanube.com/stores/001/490/877/products/remera-7-90s-tiza-atras-web-80b51f322efa1aa1f417271933543245-640-0.webp">
+                <br>
+                Remera 90S - White
+                <button>Añadir al Carrito</button>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <h2>Remeras Oversize</h2>
+        <ul class="remeras">
+            <li>
+                
+                <img src="https://acdn.mitiendanube.com/stores/001/490/877/products/remera-11-cartel-tiza-atras-web-0ab303460add4d639617271935491528-1024-1024.webp" alt="Remera blanca Oversize">
+                <br>
+                Remera Basica - White 
+                <button>Añadir al Carrito</button>
+            </li>
+            <li>
+                <img src="https://acdn.mitiendanube.com/stores/001/490/877/products/remera-16-industries-negra-adelante-web-7bdc9baa7a1c68d93517271943402458-640-0.webp" alt="REMER INDUSTRIES - BLACK">
+                <br>
+                Remera Industriales - Black
+                <button>Añadir al Carrito</button>
+            </li>
+            <li>
+                <img src="https://acdn.mitiendanube.com/stores/001/490/877/products/remera-17-wild-west-negra-atras-web-4847572eb5b39182de17271944101420-640-0.webp" alt="Remera Wild West Negra">
+                <br>
+                Remera Wild West Negra
+                
+                <button>Añadir al Carrito</button>
+            </li>
+            <li>
+                <img src="https://acdn.mitiendanube.com/stores/001/490/877/products/remera-8-fnb-tiza-atras-web-162b1051b07119adcf17271934094149-640-0.webp">
+                <br>
+                Remera FNB - White
+                <button>Añadir al Carrito</button>
+            </li>
+            <li>
+                <img src="https://acdn.mitiendanube.com/stores/001/490/877/products/remera-7-90s-tiza-atras-web-80b51f322efa1aa1f417271933543245-640-0.webp">
+                <br>
+                Remera 90S - White
+                <button>Añadir al Carrito</button>
+            </li>
+        </ul>
+    </div>
 </body>
 </html>
