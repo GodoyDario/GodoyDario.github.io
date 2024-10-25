@@ -66,6 +66,7 @@
             padding: 10px;
             margin-top: 10px;
             border-radius: 5px;
+            display: none;
         }
     </style>
 </head>
@@ -87,7 +88,12 @@
                 <span class="error" id="emailError"></span>
             </div>
             <div>
-                <textarea id="mensaje" name="mensaje" maxlength="200" rows="9" cols="50" onfocus="this.value=''" placeholder="Inserta un comentario"></textarea>
+                <label for="telefono">Telefono:</label>
+                <input type="number" id="telefono" name="telefono" maxlength="15">
+                <span class="error" id="telefonoError"></span>
+            </div>
+            <div>
+                <textarea id="comentario" name="comentario" maxlength="200" rows="9" cols="50" onfocus="this.value=''" placeholder="Inserta un comentario"></textarea>
             </div>
             <button type="submit">Enviar</button>
         </form>
@@ -97,11 +103,14 @@
         const form = document.getElementById('contacto');
         const usuario = document.getElementById('usuario');
         const email = document.getElementById('email');
-        const mensaje = document.getElementById('mensaje');
+        const comentario = document.getElementById('comentario');
+        const telefono= document.getElementById('telefono')
+        const mensajeP = document.createElement('p');
 
         const usuarioError = document.getElementById('usuarioError');
         const emailError = document.getElementById('emailError');
         const Mensaje = document.getElementById('Mensaje');
+        const telefonoError = document.getElementById('telefonoError')
 
         form.addEventListener('submit', function(event) {
             event.preventDefault();
@@ -119,17 +128,20 @@
                 hasError = true;
             }
 
-            if (mensaje.value.trim() === '') {
+            if (comentario.value.trim() === '') {
                 Mensaje.textContent = 'El mensaje no puede estar vacío';
                 Mensaje.style.color = 'red';
                 hasError = true;
             } else {
                 Mensaje.textContent = '';
             }
+            if (telefono.value.trim()==='') {
+                setError(telefono, telefonoError, 'El telefono no puede estar vacío')
+                hasError = true;
+            }
 
             if (!hasError) {
-                const comentario = crearMensaje();
-                Mensaje.innerHTML = `<p class="mensaje1">${comentario}</p>`;
+                crearMensaje();
                 form.reset();
                 usuario.focus();
             }
@@ -145,6 +157,8 @@
             emailError.textContent = '';
             usuario.style.borderColor = '';
             email.style.borderColor = '';
+            telefonoError.textContent = '';
+            telefono.style.borderColor='';
         }
 
         function validarEmail(email) {
@@ -154,9 +168,12 @@
 
         function crearMensaje() {
             const nombre = usuario.value.trim();
-            const mensajeTexto = mensaje.value.trim();
-
-            return `Gracias ${nombre} por dejarnos tu comentario, <br>Nos comentaste: ${mensajeTexto}`;
+            const mensajeTexto = comentario.value.trim();
+            mensajeP.classList.add('mensaje');
+            mensajeP.innerHTML = `Gracias ${nombre} por dejarnos tu comentario, <br>Nos comentaste: ${mensajeTexto}`;
+            Mensaje.style.display = 'block';
+            Mensaje.innerHTML = ''; 
+            Mensaje.appendChild(mensajeP);
         }
     </script>
 </body>
