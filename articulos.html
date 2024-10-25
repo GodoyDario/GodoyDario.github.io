@@ -11,7 +11,8 @@ body {
             background-attachment: fixed;
             background-size: cover;
             margin: 0;
-            padding-top: 70px
+            padding-top: 70px;
+            margin-left: 220px;
         }
         .volverInicio {
             list-style: none;
@@ -59,6 +60,22 @@ body {
             font-family: fantasy;
             font-size: 35px;
         }
+        .filtro {
+            position: fixed;
+            left: 0;
+            top: 41px;
+            width: 150px;
+            background-color: #ebe0f2;
+            padding: 25px;
+            border-right: 2px solid #cbc0d2;
+            height: 100%;
+        }
+
+        .filtro h3, .filtro h4 {
+            font-family: Arial, sans-serif;
+        }
+
+
     </style>
 </head>
 <body>
@@ -161,7 +178,7 @@ body {
             <li>
                 <img src="https://acdn.mitiendanube.com/stores/153/100/products/bullet-for-my-valentine-3-ec9879ac1ab2f5207c17111365738005-1024-1024.webp" alt="Remera de Bandas">
                 <br>
-                Bullet for My Valentine - Black
+                BFMV - Black
                 
                 <button>Añadir al Carrito</button>
             </li>
@@ -178,6 +195,29 @@ body {
                 <button>Añadir al Carrito</button>
             </li>
         </ul>
+    </div>
+    <div class="filtro">
+        <h3>Filtrar por:</h3>
+        <div>
+            <h4>Color</h4>
+            <label for="Color"><input type="checkbox"> Blanco</label><br>
+            <label for="Color"><input type="checkbox"> Negro</label><br>
+            <label for="Color"><input type="checkbox"> Gris</label><br>
+        </div>
+        <div>
+            <h4>Estilo</h4>
+            <label for="Estilo"><input type="checkbox"> Oversize</label><br>
+            <label for="Estilo"><input type="checkbox"> Halloween</label><br>
+            <label for="Estilo"><input type="checkbox"> Bandas</label><br>
+        </div>
+        <div>
+            <h4>Talles</h4>
+            <label for="Talles"><input type="checkbox"> L</label>
+            <br>
+            <label for="Talles"><input type="checkbox" > XL</label>
+            <br>
+            <label for="Talles"><input type="checkbox" > XXL</label>
+        </div>
     </div>
 </body>
 </html>

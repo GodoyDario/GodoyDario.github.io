@@ -95,8 +95,8 @@ padding-top: 0px;
 
 padding: 60px;
 margin-top: 0;
-width: 100px;
-height: 150px;
+width: 125px;
+height: auto;
 }
 .remeras {
     display: flex;
@@ -122,7 +122,7 @@ height: 150px;
     height: 700px; 
     object-fit: contain;
     display: block;
-    margin: 0 auto; 
+    margin: auto; 
 }
 .carousel button {
     position: absolute;
