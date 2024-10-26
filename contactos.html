@@ -38,7 +38,7 @@
             border: 5px solid rgb(180, 129, 193);
             border-radius: 10px;
             padding: 20px;
-            width: 450px;
+            width: 400px;
             background-color: white;
             margin-top: 60px;
         }
@@ -68,6 +68,16 @@
             border-radius: 5px;
             display: none;
         }
+        #comentario {
+    display: block;
+        }
+        #forms-email input{
+            margin-left: 20px;
+        }
+        #forms-nom input{
+            margin-left: 3px;
+        }
+
     </style>
 </head>
 <body>
@@ -77,23 +87,24 @@
     <div class="containerForm">
         <form id="contacto" novalidate>
             <h1>Déjanos tu Comentario!!</h1>
-            <div>
+            <div class="forms" id="forms-nom">
                 <label for="usuario">Nombre:</label>
-                <input type="text" id="usuario" name="usuario" maxlength="10">
+                <input type="text" id="usuario" name="usuario" placeholder="Menor a 20 letras">
                 <span class="error" id="usuarioError"></span>
             </div>
-            <div>
+            <div class="forms" id="forms-email">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email">
                 <span class="error" id="emailError"></span>
             </div>
-            <div>
+            <div class="forms">
                 <label for="telefono">Telefono:</label>
-                <input type="number" id="telefono" name="telefono" maxlength="15">
+                <input type="number" id="telefono" name="telefono" placeholder="Entre 8 y 15 digitos">
                 <span class="error" id="telefonoError"></span>
             </div>
-            <div>
-                <textarea id="comentario" name="comentario" maxlength="200" rows="9" cols="50" onfocus="this.value=''" placeholder="Inserta un comentario"></textarea>
+            <div class="forms">
+                <textarea id="comentario" name="comentario" rows="9" cols="50" onfocus="this.value=''" placeholder="Inserta un comentario"></textarea>
+            <span class="error" id="comentarioError"></span>
             </div>
             <button type="submit">Enviar</button>
         </form>
@@ -111,6 +122,7 @@
         const emailError = document.getElementById('emailError');
         const Mensaje = document.getElementById('Mensaje');
         const telefonoError = document.getElementById('telefonoError')
+        const comentarioError = document.getElementById('comentarioError')
 
         form.addEventListener('submit', function(event) {
             event.preventDefault();
@@ -118,7 +130,7 @@
             limpiarErrores();
             let hasError = false;
 
-            if (usuario.value.trim() === '') {
+            if (usuario.value.trim() === '' || usuario.value.length >=21 ) {
                 setError(usuario, usuarioError, 'El nombre es obligatorio');
                 hasError = true;
             }
@@ -128,14 +140,13 @@
                 hasError = true;
             }
 
-            if (comentario.value.trim() === '') {
-                Mensaje.textContent = 'El mensaje no puede estar vacío';
-                Mensaje.style.color = 'red';
+            if (comentario.value.trim() === '' || comentario.value.length >= 201) {
+                setError (comentario, comentarioError, 'El mensaje no puede estar vacío')
                 hasError = true;
             } else {
                 Mensaje.textContent = '';
             }
-            if (telefono.value.trim()==='') {
+            if (telefono.value.trim()==='' || telefono.value.length >= 16 || telefono.value.length <=7) {
                 setError(telefono, telefonoError, 'El telefono no puede estar vacío')
                 hasError = true;
             }
@@ -150,6 +161,7 @@
         function setError(element, errorElement, message) {
             errorElement.textContent = message;
             element.style.borderColor = 'red';
+            element.style.color ='red';
         }
 
         function limpiarErrores() {
