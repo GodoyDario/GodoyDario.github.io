@@ -131,23 +131,23 @@
             let hasError = false;
 
             if (usuario.value.trim() === '' || usuario.value.length >=21 ) {
-                setError(usuario, usuarioError, 'El nombre es obligatorio');
+                setError(usuario, usuarioError, 'Nombre no valido*');
                 hasError = true;
             }
 
             if (email.value !== '' && !validarEmail(email.value)) {
-                setError(email, emailError, 'El email no es válido');
+                setError(email, emailError, 'El email no es válido*');
                 hasError = true;
             }
 
             if (comentario.value.trim() === '' || comentario.value.length >= 201) {
-                setError (comentario, comentarioError, 'El mensaje no puede estar vacío')
+                setError (comentario, comentarioError, 'El mensaje no puede estar vacío*')
                 hasError = true;
             } else {
                 Mensaje.textContent = '';
             }
             if (telefono.value.trim()==='' || telefono.value.length >= 16 || telefono.value.length <=7) {
-                setError(telefono, telefonoError, 'El telefono no puede estar vacío')
+                setError(telefono, telefonoError, 'Telefono no valido*')
                 hasError = true;
             }
 
