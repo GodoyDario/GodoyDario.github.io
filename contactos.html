@@ -28,11 +28,13 @@
             position: fixed;
             top: 0;
             left: 0;
+            gap: 50vh;
         }
         .volverInicio a {
             text-decoration: none;
             font-size: 18px;
             color: black;
+            margin: 0 10px;
         }
         .containerForm {
             border: 5px solid rgb(180, 129, 193);
@@ -81,9 +83,14 @@
     </style>
 </head>
 <body>
-    <div class="volverInicio">
-        <a href="index.html">Volver al inicio</a>
-    </div>
+    <header>
+        <nav class="volverInicio">
+            <a href="index.html">Principal</a>
+            <a href="articulos.html">Artículos</a>
+            <a href="contactos.html">Contacto</a>
+        </nav>
+    </header>
+
     <div class="containerForm">
         <form id="contacto" novalidate>
             <h1>Déjanos tu Comentario!!</h1>
